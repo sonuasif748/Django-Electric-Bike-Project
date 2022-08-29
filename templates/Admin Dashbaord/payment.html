@@ -1,0 +1,102 @@
+{% load static %}
+  <link href="/static/favh.png" rel="icon">
+
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+<style>
+body {
+    margin-top: 130px;
+}
+.razorpay-payment-button{
+    width: 100%;
+    border: beige;
+    padding: 10px;
+    border-radius:30px;
+        margin-top: 13px
+}
+#header {
+    background-color: darkslategray;
+}
+#footer-cta{
+        background-color: darkslategray;
+
+}
+</style>
+<div class="container">
+    <div class="row">
+        <div class="well col-xs-10 col-sm-10 col-md-6 col-xs-offset-1 col-sm-offset-1 col-md-offset-3">
+            <div class="row">
+                <div class="col-xs-6 col-sm-6 col-md-6">
+                    <address>
+                        <strong>Ebikes</strong>
+                        <br>
+                        Vijayawada
+                        <br>
+                        Andra Pradesh
+                        <br>
+                        <abbr title="Phone">Number:</abbr> 9012356543
+                    </address>
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-6 text-right">
+                    <p>
+                        <em id="dtText"> </em>
+                    </p>
+                    <p>
+                        <em></em>
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="text-center">
+                    <h1>E bike Payment Page</h1>
+                </div>
+                </span>
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Products</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="col-md-9"><em>E Bikes </em></td>
+
+                        </tr>
+
+                    </tbody>
+                </table>
+                <button style="padding:5px"  type="submit" class=" btn btn-primary btn-lg btn-block">
+
+                       {% if payment %}
+            <form action="{% url 'payment-status' %}" method="POST">
+                {% csrf_token %}
+                <script
+                        src="https://checkout.razorpay.com/v1/checkout.js"
+                        data-key="rzp_test_jze7HQPaxkxEUb"
+                        data-amount="{{ payment.amount }}"
+                        data-currency="{{ payment.currency }}"
+                        data-order_id="{{ payment.id }}"
+                        data-buttontext="Pay with Razorpay"
+                        data-name="E Bike SGO"
+                        data-description="Ride SGO!"
+                        data-image="{% static 'assets/img/log1.png' %}"
+                        data-prefill.name="{{ payment.name }}"
+                        data-prefill.email="contact@sgo.com"
+{#                        data-theme.color="#F37254"#}
+                ></script>
+                <input  type="hidden" custom="Hidden Element" name="hidden">
+            </form>
+        {% endif %}
+                </button>
+
+                </td>
+            </div>
+        </div>
+    </div></div>
+<script>
+    var today = new Date();
+document.getElementById('dtText').innerHTML=today;
+</script>

@@ -1,0 +1,127 @@
+{#{% load static %}#}
+{#<link rel = "stylesheet" href = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>#}
+{#<script src =  "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>#}
+{#<script src = "https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>#}
+{##}
+{#<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">#}
+{#<style>#}
+{#    #img{#}
+{#        background-image: url("https://th.bing.com/th/id/R6664a41d1a15ad34219f0c759e6f26b8?rik=w%2bzJC%2b%2b0aa%2bvCQ&riu=http%3a%2f%2fwww.paychex.com%2fa%2fi%2farticles%2fpayment-terms.jpg&ehk=E%2f%2bXOF1NMrfDxyyXmBwFcmetjAKB%2bPGBlkF%2fH9VDYmA%3d&risl=&pid=ImgRaw");#}
+{#    height: 100%;#}
+{#        background-size: contain;#}
+{#    }#}
+{#</style>#}
+{#{% block content %}#}
+{#<div id="img">#}
+{#    {% if status %}#}
+{#        <div class="container" style="text-align: center;">#}
+{#            <i class="fa fa-check-circle" aria-hidden="true" style="font-size: 80px; color: green;"></i>#}
+{##}
+{#        </div>#}
+{#        <h2 style="text-align: center;color: dodgerblue">Thank you. Your payment was successful.</h2>#}
+{#    {% else %}#}
+{#        <h2 style="text-align: center;">Your Payment is failed! Try again.</h2>#}
+{#    {% endif %}#}
+{##}
+{#    <div class="text-center mt-5">#}
+{#        <a href="{% url 'coffee-payment' %}" class="btn btn-success">Buy another one</a><br/><br/>#}
+{#                    <p class="login-card-footer-text"><a style="text-decoration: none;color: red;font-weight: bold" href="home" class="text-reset">Return 🏠 Home</a></p>#}
+{##}
+{#    </div></div>#}
+{#{% endblock %}#}
+
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <title>Payment Page</title>
+<link rel = "stylesheet" href = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
+<script src =  "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script src = "https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+      <link href="/static/favh.png" rel="icon">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body
+{
+   margin: 0;
+   padding: 0;
+
+   background: url('/static/payment.jpeg');
+
+}
+.success-page{
+  max-width:300px;
+  display:block;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+    top: 50%;
+    transform: perspective(1px) translateY(50%)
+}
+.success-page img{
+  max-width:62px;
+  display: block;
+  margin: 0 auto;
+}
+
+.btn-view-orders{
+  display: block;
+  border:1px solid #47c7c5;
+  width:100px;
+  margin: 0 auto;
+  margin-top: 45px;
+  padding: 10px;
+  color: black;
+  background-color: #47c7c5;
+  text-decoration: none;
+  margin-bottom: 20px;
+}
+h2{
+  color: #0a0a0a;
+    margin-top: 25px;
+
+}
+
+span {
+  content: "\0024";
+}
+a{
+  text-decoration: none;
+}
+i {
+        color: #9ABC66;
+        font-size: 100px;
+        line-height: 20px;
+        margin-left:-15px;
+      }
+
+    </style>
+</head>
+<body>
+   <div class="container">
+   <form class=""method="post"action="#"></form>
+   <form method="POST" id="payment_form">
+      {% csrf_token %}
+
+    <div class="success-page">
+
+    {% if status %}
+   <i class="checkmark">✓</i>
+        <h2 style="text-align: center;color: floralwhite">Thank you. Your payment was successful.</h2>
+    {% else %}
+        <h2 style="text-align: center;color: floralwhite">Your Payment is failed! Try again.</h2>
+    {% endif %}
+
+    <div class="text-center mt-5">
+        <a href="{% url 'coffee-payment' %}" class="btn btn-primary">Buy another one</a><br/><br/>
+                    <p class="login-card-footer-text"><a style="text-decoration: none;color: floralwhite;font-weight: bold" href="afterlogin" class="text-reset btn btn-warning">Return 🏠 Home</a></p>
+
+    </div>
+
+</div>
+</div>

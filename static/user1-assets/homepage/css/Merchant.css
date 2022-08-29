@@ -1,0 +1,30 @@
+body {
+    /*background-image: url("https://image.shutterstock.com/image-vector/vector-illustration-online-trading-shop-260nw-1768084202.jpg");*/
+    background-color: #7a8488;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+button {
+    background-color: #1a49d6;
+    border-radius: 20px;
+    font-weight: bold;
+}
+
+.table-bordered {
+    border-color: #89124e;
+    border-radius: 20px;
+}
+
+table {
+  width: 60%;
+}
+
+th {
+  alignment: center;
+  height: 50px;
+  color: #721c24;
+  background-color: #00c6ff;
+}
+
+tr:nth-child(even) {background-color: #ddcece;}
